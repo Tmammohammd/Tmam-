@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<DOCTYPE HTML! >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -309,10 +308,9 @@
             <p>سجل بياناتك الآن لتصل مباشرة إلى مكتب تمام محمد</p>
         </header>
 
-        <!-- تم ربط النموذج ببريدك الإلكتروني عبر Formspree -->
+        <!-- تم تحديث الرابط ليكون سهلاً ومباشراً لبريدك الإلكتروني -->
         <form action="https://formspree.io/f/xovjqrle" method="POST" enctype="multipart/form-data">
             
-            <!-- حقل مخفي للتأكد من وصول البيانات لبريدك -->
             <input type="hidden" name="_replyto" value="Tamammohammd280@gmail.com">
             <input type="hidden" name="_subject" value="طلب توظيف جديد من موقعك!">
 
@@ -335,8 +333,8 @@
                     <div class="form-group">
                         <label>الجنس:</label>
                         <div class="options-flex">
-                            <label class="custom-option"><input type="radio" name="الجنس" value="Male"> <span>ذكر</span></label>
-                            <label class="custom-option"><input type="radio" name="الجنس" value="Female"> <span>أنثى</span></label>
+                            <label class="custom-option"><input type="radio" name="الجنس" value="ذكر"> <span>ذكر</span></label>
+                            <label class="custom-option"><input type="radio" name="الجنس" value="أنثى"> <span>أنثى</span></label>
                         </div>
                     </div>
                     <div class="form-group">
@@ -391,20 +389,24 @@
                 <legend>🔗 الروابط والسيرة الذاتية</legend>
                 <div class="form-grid">
                     <div class="form-group">
+                        <label>رابط حساب LinkedIn:</label>
+                        <input type="url" name="لينكد_إن" placeholder="https://linkedin.com/in/...">
+                    </div>
+                    <div class="form-group">
                         <label>تحميل السيرة الذاتية (CV):</label>
                         <input type="file" name="السيرة_الذاتية" style="border: 2px dashed var(--primary-green); background: white;">
                     </div>
                     <div class="form-group full-width">
                         <label>بيئة العمل المفضلة:</label>
                         <div class="options-flex">
-                            <label class="custom-option"><input type="radio" name="بيئة_العمل" value="Remote"> <span>عن بعد 🏠</span></label>
-                            <label class="custom-option"><input type="radio" name="بيئة_العمل" value="OnSite"> <span>من المكتب 🏢</span></label>
-                            <label class="custom-option"><input type="radio" name="بيئة_العمل" value="Hybrid"> <span>هجين 🔄</span></label>
+                            <label class="custom-option"><input type="radio" name="بيئة_العمل" value="عن بعد"> <span>عن بعد 🏠</span></label>
+                            <label class="custom-option"><input type="radio" name="بيئة_العمل" value="من المكتب"> <span>من المكتب 🏢</span></label>
+                            <label class="custom-option"><input type="radio" name="بيئة_العمل" value="هجين"> <span>هجين 🔄</span></label>
                         </div>
                     </div>
                     <div class="form-group full-width">
                         <label>لماذا أنت الشخص المناسب؟ (رسالة تغطية):</label>
-                        <textarea name="رسالة_التغطية" rows="5" placeholder="اكتب نبذة عن خبراتك وأهدافك..."></textarea>
+                        <textarea name="رسالة_التغطية" rows="5" placeholder="أخبرنا لماذا أنت الشخص المناسب لهذه الوظيفة..."></textarea>
                     </div>
                 </div>
             </fieldset>
@@ -431,6 +433,4 @@
 
 </body>
 </html>
-
-      
-
+ 
