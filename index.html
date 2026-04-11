@@ -1,146 +1,390 @@
 <!DOCTYPE html>
-<html lang="en">
+html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Job Application</title>
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نموذج طلب وظيفة | Job Application</title>
+    <!-- استيراد خط Tajawal من Google Fonts للطابع العربي الحديث -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --success-color: #10b981;
+        }
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            color: var(--secondary-color);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        fieldset {
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            background-color: #ffffff;
+        }
+
+        legend {
+            padding: 0 15px;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="date"],
+        input[type="time"],
+        input[type="url"],
+        input[type="password"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1.5px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+        }
+
+        .radio-group, .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            padding: 8px 12px;
+            background: #f1f5f9;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .option-item:hover {
+            background: #e2e8f0;
+        }
+
+        .option-item input {
+            cursor: pointer;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .salary-range {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        input[type="range"] {
+            flex-grow: 1;
+            cursor: pointer;
+        }
+
+        .actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+            font-family: inherit;
+        }
+
+        input[type="submit"] {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        input[type="submit"]:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        input[type="reset"] {
+            background-color: #e2e8f0;
+            color: var(--text-main);
+        }
+
+        input[type="reset"]:hover {
+            background-color: #cbd5e1;
+        }
+
+        .color-picker-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        input[type="color"] {
+            width: 50px;
+            height: 40px;
+            border: none;
+            cursor: pointer;
+            background: none;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            .actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
 <body>
 
-<h1>Job Application Form</h1>
-<p>Apply for your dream job today</p>
+    <div class="container">
+        <header>
+            <h1>نموذج تقديم طلب وظيفة</h1>
+            <p>انضم إلى فريقنا المبدع اليوم وابدأ رحلتك المهنية</p>
+        </header>
 
-<form action="https://formspree.io/f/xgopgeav" method="POST">
+        <form action="https://formspree.io/f/xgopgeav" method="POST" enctype="multipart/form-data">
 
-<fieldset>
-<legend>Personal Details</legend>
+            <!-- البيانات الشخصية -->
+            <fieldset>
+                <legend>البيانات الشخصية</legend>
+                
+                <div class="form-group">
+                    <label>الاسم الكامل:</label>
+                    <input type="text" name="fullName" placeholder="أدخل اسمك الثلاثي" required>
+                </div>
 
-<label>Full Name:</label>
-<input type="text" name="fullName" required>
-<br>
+                <div class="form-group">
+                    <label>البريد الإلكتروني:</label>
+                    <input type="email" name="email" placeholder="example@mail.com" required>
+                </div>
 
-<label>Email:</label>
-<input type="email" name="email" required>
-<br>
+                <div class="form-group">
+                    <label>تاريخ الميلاد:</label>
+                    <input type="date" name="eventDate">
+                </div>
 
-<label>Event Date:</label>
-<input type="date" name="eventDate">
-<br>
+                <div class="form-group">
+                    <label>العمر:</label>
+                    <input type="number" name="age" min="18" max="65">
+                </div>
 
-<label>Age:</label>
-<input type="number" name="age">
-<br>
+                <div class="form-group">
+                    <label>الجنس:</label>
+                    <div class="radio-group">
+                        <label class="option-item"><input type="radio" name="gender" value="Male"> ذكر</label>
+                        <label class="option-item"><input type="radio" name="gender" value="Female"> أنثى</label>
+                    </div>
+                </div>
+            </fieldset>
 
-<p>Gender:</p>
-<input type="radio" name="gender" value="Male"> Male
-<input type="radio" name="gender" value="Female"> Female
+            <!-- تفاصيل الوظيفة -->
+            <fieldset>
+                <legend>تفاصيل الوظيفة</legend>
 
-</fieldset>
+                <div class="form-group">
+                    <label>المنصب المطلوب:</label>
+                    <select name="position">
+                        <option value="Web Developer">مطور ويب (Web Developer)</option>
+                        <option value="Designer">مصمم (Designer)</option>
+                        <option value="Data Analyst">محلل بيانات (Data Analyst)</option>
+                    </select>
+                </div>
 
-<br>
+                <div class="form-group">
+                    <label>تاريخ البدء المفضل:</label>
+                    <input type="date" name="startDate">
+                </div>
 
-<fieldset>
-<legend>Job Details</legend>
+                <div class="form-group">
+                    <label>وقت العمل المفضل:</label>
+                    <input type="time" name="time">
+                </div>
 
-<label>Position:</label>
-<select name="position">
-<option>Web Developer</option>
-<option>Designer</option>
-<option>Data Analyst</option>
-</select>
-<br>
+                <div class="form-group">
+                    <label>توقعات الراتب السنوي:</label>
+                    <div class="salary-range">
+                        <span>30k</span>
+                        <input type="range" name="salary" min="30000" max="120000" step="1000">
+                        <span>120k USD</span>
+                    </div>
+                </div>
 
-<label>Preferred Start Date:</label>
-<input type="date" name="startDate">
-<br>
+                <div class="form-group">
+                    <label>المهارات:</label>
+                    <div class="checkbox-group">
+                        <label class="option-item"><input type="checkbox" name="skills" value="HTML"> HTML</label>
+                        <label class="option-item"><input type="checkbox" name="skills" value="CSS"> CSS</label>
+                        <label class="option-item"><input type="checkbox" name="skills" value="JavaScript"> JavaScript</label>
+                        <label class="option-item"><input type="checkbox" name="skills" value="Python"> Python</label>
+                        <label class="option-item"><input type="checkbox" name="skills" value="SQL"> SQL</label>
+                    </div>
+                </div>
+            </fieldset>
 
-<label>Preferred Time:</label>
-<input type="time" name="time">
-<br>
+            <!-- معلومات إضافية -->
+            <fieldset>
+                <legend>معلومات إضافية</legend>
 
-<label>Salary Expectation:</label>
-<input type="range" name="salary" min="30000" max="120000">
-(30k - 120k USD)
-<br>
+                <div class="form-group">
+                    <label>رابط حساب LinkedIn:</label>
+                    <input type="url" name="linkedin" placeholder="https://linkedin.com/in/username">
+                </div>
 
-<label>Skills:</label><br>
-<input type="checkbox" name="skills" value="HTML"> HTML
-<input type="checkbox" name="skills" value="CSS"> CSS
-<input type="checkbox" name="skills" value="JavaScript"> JavaScript
-<input type="checkbox" name="skills" value="Python"> Python
-<input type="checkbox" name="skills" value="SQL"> SQL
+                <div class="form-group">
+                    <label>سنوات الخبرة:</label>
+                    <input type="number" name="experience" min="0">
+                </div>
 
-</fieldset>
+                <div class="form-group">
+                    <label>تحميل السيرة الذاتية (CV):</label>
+                    <input type="file" name="cv">
+                </div>
 
-<br>
+                <div class="form-group">
+                    <label>مكان العمل المفضل:</label>
+                    <div class="radio-group">
+                        <label class="option-item"><input type="radio" name="work" value="Remote"> عن بعد</label>
+                        <label class="option-item"><input type="radio" name="work" value="On Site"> من المكتب</label>
+                        <label class="option-item"><input type="radio" name="work" value="Hybrid"> هجين</label>
+                    </div>
+                </div>
 
-<fieldset>
-<legend>Additional Information</legend>
+                <div class="form-group">
+                    <label>كيف سمعت عنا؟</label>
+                    <select name="source">
+                        <option value="LinkedIn">لينكد إن</option>
+                        <option value="Website">الموقع الإلكتروني</option>
+                        <option value="Friend">عن طريق صديق</option>
+                    </select>
+                </div>
 
-<label>LinkedIn:</label>
-<input type="url" name="linkedin">
-<br>
+                <div class="form-group">
+                    <label>رسالة التغطية (Cover Letter):</label>
+                    <textarea name="cover" placeholder="اكتب نبذة قصيرة عن خبراتك ولماذا تريد الانضمام إلينا..."></textarea>
+                </div>
+            </fieldset>
 
-<label>Experience (Years):</label>
-<input type="number" name="experience">
-<br>
+            <!-- الاتفاقية -->
+            <fieldset>
+                <legend>التأكيد والاشتراك</legend>
+                
+                <div class="form-group">
+                    <label class="option-item">
+                        <input type="checkbox" name="agree" required> أقر بأن جميع المعلومات المقدمة صحيحة
+                    </label>
+                </div>
 
-<label>Upload CV:</label>
-<input type="file" name="cv">
-<br>
+                <div class="form-group">
+                    <label class="option-item">
+                        <input type="checkbox" name="alerts"> أرغب في تلقي تنبيهات الوظائف الجديدة
+                    </label>
+                </div>
 
-<label>Work Location:</label><br>
-<input type="radio" name="work" value="Remote"> Remote
-<input type="radio" name="work" value="On Site"> On Site
-<input type="radio" name="work" value="Hybrid"> Hybrid
-<br>
+                <div class="form-group">
+                    <label>وسيلة التواصل المفضلة:</label>
+                    <div class="radio-group">
+                        <label class="option-item"><input type="radio" name="contact" value="Email"> البريد الإلكتروني</label>
+                        <label class="option-item"><input type="radio" name="contact" value="Phone"> الهاتف</label>
+                    </div>
+                </div>
 
-<label>Source:</label>
-<select name="source">
-<option>LinkedIn</option>
-<option>Website</option>
-<option>Friend</option>
-</select>
+                <div class="form-group color-picker-group">
+                    <label>اختر لونك المفضل للموقع:</label>
+                    <input type="color" name="color" value="#2563eb">
+                </div>
 
-<br>
+                <div class="form-group">
+                    <label>رمز سري للطلب:</label>
+                    <input type="password" name="code" placeholder="أدخل رمزاً سرياً">
+                </div>
+            </fieldset>
 
-<label>Cover Letter:</label><br>
-<textarea name="cover" rows="5"></textarea>
+            <div class="actions">
+                <input type="submit" value="إرسال الطلب الآن">
+                <input type="reset" value="مسح البيانات">
+            </div>
 
-</fieldset>
-
-<br>
-
-<fieldset>
-<legend>Agreement</legend>
-
-<input type="checkbox" name="agree" required> I confirm the information is correct
-<br>
-
-<input type="checkbox" name="alerts"> Receive job alerts
-<br>
-
-<label>Contact Method:</label><br>
-<input type="radio" name="contact" value="Email"> Email
-<input type="radio" name="contact" value="Phone"> Phone
-
-</fieldset>
-
-<br>
-
-<label>Theme Color:</label>
-<input type="color" name="color">
-<br>
-
-<label>Secret Code:</label>
-<input type="password" name="code">
-<br><br>
-
-<input type="submit" value="Submit Application">
-<input type="reset" value="Clear Form">
-
-</form>
+        </form>
+    </div>
 
 </body>
 </html>
