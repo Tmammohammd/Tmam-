@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Application</title>
+</head>
+
+<body>
+
+<h1>Job Application Form</h1>
+<p>Apply for your dream job today</p>
+
+<form action="https://formspree.io/f/xgopgeav" method="POST">
+
+<fieldset>
+<legend>Personal Details</legend>
+
+<label>Full Name:</label>
+<input type="text" name="fullName" required>
+<br>
+
+<label>Email:</label>
+<input type="email" name="email" required>
+<br>
+
+<label>Event Date:</label>
+<input type="date" name="eventDate">
+<br>
+
+<label>Age:</label>
+<input type="number" name="age">
+<br>
+
+<p>Gender:</p>
+<input type="radio" name="gender" value="Male"> Male
+<input type="radio" name="gender" value="Female"> Female
+
+</fieldset>
+
+<br>
+
+<fieldset>
+<legend>Job Details</legend>
+
+<label>Position:</label>
+<select name="position">
+<option>Web Developer</option>
+<option>Designer</option>
+<option>Data Analyst</option>
+</select>
+<br>
+
+<label>Preferred Start Date:</label>
+<input type="date" name="startDate">
+<br>
+
+<label>Preferred Time:</label>
+<input type="time" name="time">
+<br>
+
+<label>Salary Expectation:</label>
+<input type="range" name="salary" min="30000" max="120000">
+(30k - 120k USD)
+<br>
+
+<label>Skills:</label><br>
+<input type="checkbox" name="skills" value="HTML"> HTML
+<input type="checkbox" name="skills" value="CSS"> CSS
+<input type="checkbox" name="skills" value="JavaScript"> JavaScript
+<input type="checkbox" name="skills" value="Python"> Python
+<input type="checkbox" name="skills" value="SQL"> SQL
+
+</fieldset>
+
+<br>
+
+<fieldset>
+<legend>Additional Information</legend>
+
+<label>LinkedIn:</label>
+<input type="url" name="linkedin">
+<br>
+
+<label>Experience (Years):</label>
+<input type="number" name="experience">
+<br>
+
+<label>Upload CV:</label>
+<input type="file" name="cv">
+<br>
+
+<label>Work Location:</label><br>
+<input type="radio" name="work" value="Remote"> Remote
+<input type="radio" name="work" value="On Site"> On Site
+<input type="radio" name="work" value="Hybrid"> Hybrid
+<br>
+
+<label>Source:</label>
+<select name="source">
+<option>LinkedIn</option>
+<option>Website</option>
+<option>Friend</option>
+</select>
+
+<br>
+
+<label>Cover Letter:</label><br>
+<textarea name="cover" rows="5"></textarea>
+
+</fieldset>
+
+<br>
+
+<fieldset>
+<legend>Agreement</legend>
+
+<input type="checkbox" name="agree" required> I confirm the information is correct
+<br>
+
+<input type="checkbox" name="alerts"> Receive job alerts
+<br>
+
+<label>Contact Method:</label><br>
+<input type="radio" name="contact" value="Email"> Email
+<input type="radio" name="contact" value="Phone"> Phone
+
+</fieldset>
+
+<br>
+
+<label>Theme Color:</label>
+<input type="color" name="color">
+<br>
+
+<label>Secret Code:</label>
+<input type="password" name="code">
+<br><br>
+
+<input type="submit" value="Submit Application">
+<input type="reset" value="Clear Form">
+
+</form>
+
+</body>
+</html>
