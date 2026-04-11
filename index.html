@@ -1,4 +1,5 @@
-<DOCTYPE HTML! >
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,7 +40,6 @@
         .logo-wrapper {
             text-align: center;
             margin-bottom: 50px;
-            animation: fadeInDown 1.2s ease-out;
         }
 
         .logo-box {
@@ -68,7 +68,6 @@
             border-radius: 40px;
             box-shadow: 0 30px 60px rgba(0,0,0,0.4);
             border: 1px solid rgba(255,255,255,0.4);
-            animation: fadeInUp 1s ease-out;
         }
 
         header {
@@ -91,7 +90,6 @@
             font-weight: 500;
         }
 
-        /* تنسيق الأقسام */
         fieldset {
             border: none;
             margin-bottom: 50px;
@@ -144,7 +142,7 @@
             border-radius: 18px;
             font-size: 1.05rem;
             font-family: inherit;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s;
             background: #f9fafb;
             color: #111827;
         }
@@ -154,10 +152,8 @@
             background: #ffffff;
             box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.15);
             outline: none;
-            transform: translateY(-2px);
         }
 
-        /* تنسيق الخيارات */
         .options-flex {
             display: flex;
             flex-wrap: wrap;
@@ -175,22 +171,13 @@
             cursor: pointer;
             transition: all 0.3s;
             font-weight: 700;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
         }
 
         .custom-option:hover {
             border-color: var(--primary-green);
             background: #f0fdf4;
-            transform: scale(1.02);
         }
 
-        .custom-option input {
-            width: 20px;
-            height: 20px;
-            accent-color: var(--primary-green);
-        }
-
-        /* الراتب */
         .salary-card {
             background: linear-gradient(135deg, #fff5f5, #fff);
             padding: 30px;
@@ -214,7 +201,6 @@
             font-size: 1.2rem;
         }
 
-        /* الأزرار */
         .btn-container {
             display: flex;
             gap: 25px;
@@ -229,7 +215,7 @@
             font-size: 1.4rem;
             font-weight: 900;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.4s;
             font-family: inherit;
             display: flex;
             align-items: center;
@@ -244,18 +230,13 @@
         }
 
         .btn-submit:hover {
-            transform: translateY(-5px) scale(1.02);
+            transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(220, 38, 38, 0.5);
         }
 
         .btn-reset {
             background: #f3f4f6;
             color: #4b5563;
-        }
-
-        .btn-reset:hover {
-            background: #e5e7eb;
-            transform: translateY(-2px);
         }
 
         footer {
@@ -273,18 +254,6 @@
         footer span {
             color: #10b981;
             font-weight: 900;
-            text-decoration: underline;
-        }
-
-        /* أنيميشن */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-40px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         @media (max-width: 768px) {
@@ -292,7 +261,6 @@
             .container { padding: 40px 25px; }
             .logo-box { font-size: 2.5rem; padding: 10px 30px; }
             .btn-container { flex-direction: column; }
-            .logo-wrapper { margin-bottom: 30px; }
         }
     </style>
 </head>
@@ -305,60 +273,44 @@
     <div class="container">
         <header>
             <h2>بوابة التوظيف الذهبية</h2>
-            <p>سجل بياناتك الآن لتصل مباشرة إلى مكتب تمام محمد</p>
+            <p>سجل بياناتك الآن لتصل مباشرة إلى بريد تمام محمد</p>
         </header>
 
-        <!-- تم تحديث الرابط ليكون سهلاً ومباشراً لبريدك الإلكتروني -->
-        <form action="https://formspree.io/f/xovjqrle" method="POST" enctype="multipart/form-data">
+        <!-- طريقة الإرسال المباشرة mailto -->
+        <form id="jobForm">
             
-            <input type="hidden" name="_replyto" value="Tamammohammd280@gmail.com">
-            <input type="hidden" name="_subject" value="طلب توظيف جديد من موقعك!">
-
-            <!-- البيانات الشخصية -->
             <fieldset>
                 <legend>👤 البيانات الشخصية</legend>
                 <div class="form-grid">
                     <div class="form-group full-width">
                         <label>الاسم الكامل:</label>
-                        <input type="text" name="الاسم_الكامل" placeholder="أدخل اسمك الثلاثي" required>
+                        <input type="text" id="fullName" placeholder="أدخل اسمك الثلاثي" required>
                     </div>
                     <div class="form-group">
                         <label>البريد الإلكتروني:</label>
-                        <input type="email" name="البريد_الإلكتروني" placeholder="example@mail.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label>تاريخ الميلاد:</label>
-                        <input type="date" name="تاريخ_الميلاد">
-                    </div>
-                    <div class="form-group">
-                        <label>الجنس:</label>
-                        <div class="options-flex">
-                            <label class="custom-option"><input type="radio" name="الجنس" value="ذكر"> <span>ذكر</span></label>
-                            <label class="custom-option"><input type="radio" name="الجنس" value="أنثى"> <span>أنثى</span></label>
-                        </div>
+                        <input type="email" id="email" placeholder="example@mail.com" required>
                     </div>
                     <div class="form-group">
                         <label>العمر:</label>
-                        <input type="number" name="العمر" min="18" placeholder="18+">
+                        <input type="number" id="age" min="18" placeholder="18+">
                     </div>
                 </div>
             </fieldset>
 
-            <!-- التفاصيل المهنية -->
             <fieldset>
                 <legend>💼 التفاصيل المهنية</legend>
                 <div class="form-grid">
                     <div class="form-group">
                         <label>المنصب المطلوب:</label>
-                        <select name="الوظيفة_المطلوبة">
-                            <option value="Web Developer">مطور مواقع ويب</option>
-                            <option value="Designer">مصمم جرافيك</option>
-                            <option value="Data Analyst">محلل بيانات</option>
+                        <select id="position">
+                            <option value="مطور مواقع ويب">مطور مواقع ويب</option>
+                            <option value="مصمم جرافيك">مصمم جرافيك</option>
+                            <option value="محلل بيانات">محلل بيانات</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>تاريخ البدء المتاح:</label>
-                        <input type="date" name="تاريخ_البدء">
+                        <input type="date" id="startDate">
                     </div>
                     <div class="form-group full-width">
                         <label>توقعات الراتب السنوي:</label>
@@ -367,60 +319,23 @@
                                 <span>$30,000</span>
                                 <span>$120,000</span>
                             </div>
-                            <input type="range" name="الراتب_المتوقع" min="30000" max="120000" step="5000">
-                            <p style="color: var(--accent-red); font-weight: 800; margin-top: 10px;">حدد ميزانية الراتب التي تطمح لها</p>
-                        </div>
-                    </div>
-                    <div class="form-group full-width">
-                        <label>المهارات التقنية التي تتقنها:</label>
-                        <div class="options-flex">
-                            <label class="custom-option"><input type="checkbox" name="المهارات" value="HTML"> <span>HTML5</span></label>
-                            <label class="custom-option"><input type="checkbox" name="المهارات" value="CSS"> <span>CSS3</span></label>
-                            <label class="custom-option"><input type="checkbox" name="المهارات" value="JS"> <span>JavaScript</span></label>
-                            <label class="custom-option"><input type="checkbox" name="المهارات" value="Python"> <span>Python</span></label>
-                            <label class="custom-option"><input type="checkbox" name="المهارات" value="SQL"> <span>SQL</span></label>
+                            <input type="range" id="salary" min="30000" max="120000" step="5000">
+                            <p style="color: var(--accent-red); font-weight: 800; margin-top: 10px;">حدد الراتب الذي تطمح له</p>
                         </div>
                     </div>
                 </div>
             </fieldset>
 
-            <!-- روابط وملفات -->
             <fieldset>
-                <legend>🔗 الروابط والسيرة الذاتية</legend>
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label>رابط حساب LinkedIn:</label>
-                        <input type="url" name="لينكد_إن" placeholder="https://linkedin.com/in/...">
-                    </div>
-                    <div class="form-group">
-                        <label>تحميل السيرة الذاتية (CV):</label>
-                        <input type="file" name="السيرة_الذاتية" style="border: 2px dashed var(--primary-green); background: white;">
-                    </div>
-                    <div class="form-group full-width">
-                        <label>بيئة العمل المفضلة:</label>
-                        <div class="options-flex">
-                            <label class="custom-option"><input type="radio" name="بيئة_العمل" value="عن بعد"> <span>عن بعد 🏠</span></label>
-                            <label class="custom-option"><input type="radio" name="بيئة_العمل" value="من المكتب"> <span>من المكتب 🏢</span></label>
-                            <label class="custom-option"><input type="radio" name="بيئة_العمل" value="هجين"> <span>هجين 🔄</span></label>
-                        </div>
-                    </div>
-                    <div class="form-group full-width">
-                        <label>لماذا أنت الشخص المناسب؟ (رسالة تغطية):</label>
-                        <textarea name="رسالة_التغطية" rows="5" placeholder="أخبرنا لماذا أنت الشخص المناسب لهذه الوظيفة..."></textarea>
-                    </div>
+                <legend>📝 رسالة إضافية</legend>
+                <div class="form-group full-width">
+                    <label>لماذا أنت الشخص المناسب؟ (رسالة تغطية):</label>
+                    <textarea id="cover" rows="5" placeholder="اكتب نبذة عن خبراتك وأهدافك..."></textarea>
                 </div>
             </fieldset>
-
-            <!-- الاتفاقية -->
-            <div style="background: #f0fdf4; padding: 25px; border-radius: 25px; border: 2px solid var(--primary-green); margin-bottom: 40px;">
-                <label class="custom-option" style="border: none; background: transparent; padding: 0;">
-                    <input type="checkbox" name="الإقرار" required> 
-                    <span>أؤكد صحة كافة البيانات المقدمة وأوافق على شروط الاستخدام.</span>
-                </label>
-            </div>
 
             <div class="btn-container">
-                <button type="submit" class="btn btn-submit">إرسال الطلب الآن 🚀</button>
+                <button type="button" onclick="sendEmail()" class="btn btn-submit">إرسال الطلب الآن 🚀</button>
                 <button type="reset" class="btn btn-reset">مسح النموذج</button>
             </div>
 
@@ -431,6 +346,37 @@
         جميع الحقوق محفوظة © 2026 | تطوير وإشراف <span>تمام محمد</span>
     </footer>
 
+    <script>
+        function sendEmail() {
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const age = document.getElementById('age').value;
+            const position = document.getElementById('position').value;
+            const startDate = document.getElementById('startDate').value;
+            const salary = document.getElementById('salary').value;
+            const cover = document.getElementById('cover').value;
+
+            if(!fullName || !email) {
+                alert('يرجى تعبئة الاسم والبريد الإلكتروني على الأقل');
+                return;
+            }
+
+            const subject = encodeURIComponent("طلب توظيف جديد من موقعك!");
+            const body = encodeURIComponent(
+                "بيانات المتقدم الجديدة:\n\n" +
+                "الاسم: " + fullName + "\n" +
+                "البريد: " + email + "\n" +
+                "العمر: " + age + "\n" +
+                "الوظيفة: " + position + "\n" +
+                "تاريخ البدء: " + startDate + "\n" +
+                "الراتب المتوقع: " + salary + "$\n" +
+                "الرسالة: " + cover
+            );
+
+            // فتح تطبيق البريد الإلكتروني مباشرة مع تعبئة البيانات
+            window.location.href = "mailto:Tamammohammd280@gmail.com?subject=" + subject + "&body=" + body;
+        }
+    </script>
+
 </body>
 </html>
- 
